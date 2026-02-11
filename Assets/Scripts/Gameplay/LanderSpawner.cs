@@ -10,6 +10,7 @@ public class LanderSpawner : MonoBehaviour
     [Header("Spawn Settings")]
     public bool tryFindResourceRichArea = true;
     public int searchRadius = 5;
+    public int searchIndexRadius = 3;
 
     public void StartToSpawn()
     {
@@ -46,26 +47,39 @@ public class LanderSpawner : MonoBehaviour
         int bestY = centerY;
         int bestScore = -1;
 
-        for(int x=centerX-searchRadius; x<=centerX+searchRadius; x++)
+        //Search in a diamond shape around the center for the tile with the most resources in its vicinity, prioritizing closer tiles in case of ties
+        for (int x=centerX-searchRadius; x<=centerX+searchRadius;x++)
         {
-            for(int y=centerY-searchRadius; y<=centerY+searchRadius; y++)
+            for(int y = centerY - searchRadius; y <= centerY + searchRadius; y++)
             {
                 if (x < 0 || y < 0 || x >= gridManager.width || y >= gridManager.height)
                     continue;
 
+                int score = 0;
                 PlanetTile tile = gridManager.grid.GetGridObject(x, y);
-                if(tile != null)
+                for(int i=centerX-searchIndexRadius;i<=centerX+searchIndexRadius;i++)
                 {
-                    int score = 0;
-                    if(tile.hasOre) score++;
-                    if(tile.hasIce) score++;
-                    if(score > bestScore)
+                    for (int j = centerY - searchIndexRadius - Mathf.Abs(i - centerX); j <= centerY + searchIndexRadius - Mathf.Abs(i - centerX); j++)
                     {
-                        bestScore = score;
-                        bestX = x;
-                        bestY = y;
+                        if (i < 0 || j < 0 || i >= gridManager.width || j >= gridManager.height)
+                            continue;
+
+                        PlanetTile nearbyTile=gridManager.grid.GetGridObject(i, j);
+                        if (nearbyTile != null)
+                        {
+                            if (nearbyTile.hasOre) score++;
+                            if (nearbyTile.hasIce) score++;
+                        }
                     }
                 }
+
+                if (score > bestScore)
+                {
+                    bestScore = score;
+                    bestX = x;
+                    bestY = y;
+                }
+
             }
         }
 

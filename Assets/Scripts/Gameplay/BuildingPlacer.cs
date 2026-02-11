@@ -194,7 +194,7 @@ public class BuildingPlacer : MonoBehaviour
         if (prefab == null) return false;
 
         BuildingConfig config = prefab.GetComponent<BuildingConfig>();
-        if (config == null) return true;
+        if (config == null) return false;
 
         if (config.onlyOnRock && tile.tileType != TileType.Rock) return false;
         if (config.onlyOnIce && tile.tileType != TileType.Ice) return false;

@@ -15,7 +15,7 @@ public class ResourceInventory
     public int waterCapacity = 50;
     public int metalCapacity = 50;
 
-    public bool CanAfford(int oreCost, int iceCost, int waterCost, int metalCost)
+    public bool CanAfford(int oreCost, int metalCost, int iceCost, int waterCost)
     {
         if(oreCost > ore) return false;
         if(iceCost > ice) return false;
