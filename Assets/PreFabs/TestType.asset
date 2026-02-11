@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd6960a06edef84f86a396a08b22e8d, type: 3}
+  m_Name: TestType
+  m_EditorClassIdentifier: Assembly-CSharp::BuildingTypeSO
+  nameString: Test
+  prefab: {fileID: 5886632330855180250, guid: 572838866a2e72c469ba2b66a95d4e10, type: 3}
+  icon: {fileID: 0}
+  cost: 10
