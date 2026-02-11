@@ -6,19 +6,6 @@ This project emphasizes gameplay systems over visual polish, demonstrating how m
 
 ---
 
-## 🎥 Gameplay Overview
-
-*(Add a short gameplay GIF or 60–90 sec video here — recruiters LOVE this.)*
-
-Recommended showcase:
-
-* Fog of war revealing new tiles
-* Building placement with validation
-* Resource production & consumption
-* Energy constraints affecting expansion
-
----
-
 ## 🚀 Project Focus
 
 Rather than building a full game, this prototype was developed to explore **strategy-oriented gameplay systems** such as:
