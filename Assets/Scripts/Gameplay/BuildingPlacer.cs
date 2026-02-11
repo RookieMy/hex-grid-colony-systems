@@ -4,7 +4,8 @@ public class BuildingPlacer : MonoBehaviour
 {
     [Header("References")]
     public GridManager gridManager;
-    public GridSelector gridSelector;    // hover için
+    public GridSelector gridSelector;
+    public FOWManager fowManager;
 
     [Header("Bina Prefabları")]
     public GameObject landerPrefab;
@@ -51,8 +52,6 @@ public class BuildingPlacer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha4)) SetActiveBuildingType(BuildingType.Storage);
         if (Input.GetKeyDown(KeyCode.Alpha5)) SetActiveBuildingType(BuildingType.Refinery);
         if (Input.GetKeyDown(KeyCode.Alpha6)) SetActiveBuildingType(BuildingType.Extractor);
-
-        // Sağ tık → iptal
         if (Input.GetMouseButtonDown(1))
         {
             SetActiveBuildingType(BuildingType.None);
@@ -110,6 +109,9 @@ public class BuildingPlacer : MonoBehaviour
                 );
             }
 
+            if(config.buildingType == BuildingType.Lander)
+                fowManager.RevealAround(center);
+
             gridManager.RecalculateStorageCapacities();
             gridManager.RecalculateEnergy();
         }
@@ -154,7 +156,6 @@ public class BuildingPlacer : MonoBehaviour
 
             ghostType = activeBuildingType;
 
-            // Collider varsa kapatalım ki etkileşmesin
             foreach (var col in ghostInstance.GetComponentsInChildren<Collider>())
             {
                 col.enabled = false;
@@ -186,16 +187,14 @@ public class BuildingPlacer : MonoBehaviour
 
     private bool CanPlaceOnTile(PlanetTile tile)
     {
-        // Temel validasyonlar
-        if (!tile.isDiscovered) return false;  // FOW kapalıysa yerleştirme
+        if (!tile.isDiscovered) return false;
         if (tile.isOccupied) return false;
 
-        // Zemin kuralları (ileride detaylandırılabilir)
         GameObject prefab = GetPrefabForType(activeBuildingType);
         if (prefab == null) return false;
 
         BuildingConfig config = prefab.GetComponent<BuildingConfig>();
-        if (config == null) return true; // kural yoksa serbest
+        if (config == null) return true;
 
         if (config.onlyOnRock && tile.tileType != TileType.Rock) return false;
         if (config.onlyOnIce && tile.tileType != TileType.Ice) return false;
@@ -205,13 +204,11 @@ public class BuildingPlacer : MonoBehaviour
             if (!tile.hasOre && !tile.hasIce) return false; 
         }
 
-        // Şimdilik eğim vs. yok, o yüzden requiresFlatTile kontrolünü es geçiyoruz.
-
         float futureProd = gridManager.totalEnergyProduction + config.energyProduction;
         float futureCons= gridManager.totalEnergyConsumption + config.energyConsumption;
         float futureNet = futureProd - futureCons;
 
-        if (futureNet < 0f) return false; // enerji yetersiz
+        if (futureNet < 0f) return false;
 
         if (!gridManager.resources.CanAfford(
                 config.costOre,

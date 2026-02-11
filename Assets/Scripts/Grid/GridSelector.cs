@@ -28,7 +28,7 @@ public class GridSelector : MonoBehaviour
 
             Vector3 center = grid.GetWorldPosition(x, y);
             hoverIndicator.gameObject.SetActive(true);
-            hoverIndicator.position = center + Vector3.up * 0.05f;
+            hoverIndicator.position = center + Vector3.up * 2f;
 
         }
         else

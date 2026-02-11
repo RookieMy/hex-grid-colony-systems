@@ -294,7 +294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LanderSpawner
   gridManager: {fileID: 416811868}
   fowManager: {fileID: 59210843}
-  landerPrefab: {fileID: 6572582098928682341, guid: a63436226ee3d424f8fb4b2c36e87625,
+  landerPrefab: {fileID: 4160332548512755670, guid: a63436226ee3d424f8fb4b2c36e87625,
     type: 3}
   tryFindResourceRichArea: 1
   searchRadius: 5
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416811865}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7875ddca3ee049459d04597d171f56d, type: 3}
   m_Name: 
@@ -1420,13 +1420,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuildingPlacer
   gridManager: {fileID: 416811868}
   gridSelector: {fileID: 416811869}
-  landerPrefab: {fileID: 6572582098928682341, guid: a63436226ee3d424f8fb4b2c36e87625,
+  fowManager: {fileID: 59210843}
+  landerPrefab: {fileID: 4160332548512755670, guid: a63436226ee3d424f8fb4b2c36e87625,
     type: 3}
-  solarPanelPrefab: {fileID: 4359514261167569413, guid: 6436293529884aa49bd35236ef80382e,
+  solarPanelPrefab: {fileID: 6412721873903670057, guid: 6436293529884aa49bd35236ef80382e,
     type: 3}
   batteryPrefab: {fileID: 1925176489613274942, guid: 36e66903c94f8ab47b59895c47a33b75,
     type: 3}
-  storagePrefab: {fileID: 8295213574658606418, guid: 55de0c228ec34d745b06a2f0539ac576,
+  storagePrefab: {fileID: 6806881424440141317, guid: 55de0c228ec34d745b06a2f0539ac576,
     type: 3}
   refineryPrefab: {fileID: 6043400656654150598, guid: a97e5ad5040c5c840acd230f92c5f53b,
     type: 3}
@@ -2857,8 +2858,8 @@ Transform:
   m_GameObject: {fileID: 816013046}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 4, z: 1}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
+  m_LocalScale: {x: 0.1, y: 2, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
