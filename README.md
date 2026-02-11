@@ -6,6 +6,13 @@ This project emphasizes gameplay systems over visual polish, demonstrating how m
 
 ---
 
+## 🎥 Gameplay Overview
+
+[![Preview](https://img.youtube.com/vi/TokQaDb_0X4/hqdefault.jpg)](https://www.youtube.com/watch?v=TokQaDb_0X4)
+
+---
+
+
 ## 🚀 Project Focus
 
 Rather than building a full game, this prototype was developed to explore **strategy-oriented gameplay systems** such as:
