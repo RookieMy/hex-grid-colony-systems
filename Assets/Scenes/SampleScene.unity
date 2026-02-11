@@ -298,6 +298,7 @@ MonoBehaviour:
     type: 3}
   tryFindResourceRichArea: 1
   searchRadius: 5
+  searchIndexRadius: 3
 --- !u!4 &166975224
 Transform:
   m_ObjectHideFlags: 0
@@ -1309,10 +1310,10 @@ MonoBehaviour:
   maxIceAmountPerNode: 200
   minIceAmountPerNode: 50
   resources:
-    ore: 10
-    ice: 10
-    water: 10
-    metal: 10
+    ore: 25
+    ice: 25
+    water: 25
+    metal: 25
     oreCapacity: 50
     iceCapacity: 50
     waterCapacity: 50
