@@ -17,7 +17,7 @@ Rather than building a full game, this prototype was developed to explore **stra
 * Energy production / consumption constraints
 * Tile data management
 
-The goal was to design systems that are **scalable, maintainable, and expandable** — mirroring production-minded engineering practices.
+The goal was to design systems that are **scalable, maintainable, and expandable**, mirroring production-minded engineering practices.
 
 ---
 
